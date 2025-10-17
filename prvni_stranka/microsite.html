@@ -1,1 +1,211 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Print Studio – Zakázkový 3D tisk</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", sans-serif;
+    }
 
+    body {
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 25px;
+      background-color: #222;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    .menu-icon {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #00bcd4;
+    }
+
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 50px 10%;
+      background-color: #fff;
+    }
+
+    .hero-text {
+      flex: 1 1 300px;
+      max-width: 500px;
+    }
+
+    .hero-text h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    .hero-text p {
+      font-size: 1.2em;
+      color: #666;
+    }
+
+    .hero img {
+      flex: 1 1 300px;
+      max-width: 400px;
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    section {
+      padding: 60px 10%;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 2em;
+      color: #222;
+    }
+
+    .about p {
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+      text-align: center;
+      color: #444;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      background-color: #222;
+      color: #ccc;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9em;
+    }
+
+    /* Responsivní menu */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background-color: #333;
+        border-radius: 10px;
+        padding: 15px;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      .menu-icon {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="https://www.flytime.cz/data/products_img/800/ZAKAZKOVY3DTISK832408324115098914457302693.png" alt="Logo 3D Print Studio">
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <nav>
+      <ul id="menu">
+        <li><a href="#onas">O nás</a></li>
+        <li><a href="#sluzby">Služby</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>3D Print Studio</h1>
+      <p>Zakázkový 3D tisk pro firmy i jednotlivce. Přetvoříme vaše nápady v realitu.</p>
+    </div>
+    <img src="https://blog.prusa3d.com/wp-content/uploads/photo-gallery/April2017.png" alt="3D tisk">
+  </section>
+
+  <section id="onas" class="about">
+    <h2>O nás</h2>
+    <p>Jsme česká společnost zaměřená na zakázkový 3D tisk. Nabízíme výrobu prototypů, modelů i finálních produktů z kvalitních materiálů. Spolupracujeme s designéry, inženýry i hobby tvůrci. Klademe důraz na preciznost, rychlost a osobní přístup.</p>
+  </section>
+
+  <section id="sluzby" class="about">
+    <h2>Služby</h2>
+    <p>Nabízíme 3D tisk metodami FDM, SLA i SLS. Pomůžeme vám s návrhem modelu, optimalizací pro tisk i s povrchovou úpravou výsledného výrobku. Na přání zajistíme také malosériovou výrobu.</p>
+  </section>
+
+  <section id="galerie" class="gallery-section">
+    <h2>Galerie</h2>
+    <div class="gallery">
+      <img src="https://img-cdn.heureka.group/v1/4f890f7a-33e2-52db-b781-ba6d1d07a1e9.jpg" alt="3D tiskárna">
+      <img src="https://www.prusa3d.com/cdn-cgi/image/format=auto,quality=85/content/wysiwyg/fotky/MK4/hobbies.jpg" alt="3D tiskárna">
+      <img src="https://for3dtisk.cz/wp-content/uploads/2021/05/vyrobky-z-3d-tiskarny-e1737396870109.png" alt="Výrobek z 3D tiskárny">
+      <img src="https://cdn1.botland.cz/104544/vyzkousejte-ruzne-barvy-pla-pro-3d-tisk-sada-vlaken.jpg" alt="3D tisk plastu">
+    </div>
+  </section>
+
+  <footer>
+    © 2025 3D Print Studio – Všechna práva vyhrazena
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("active");
+    }
+  </script>
+
+</body>
+</html>
