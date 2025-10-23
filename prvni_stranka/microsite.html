@@ -2,210 +2,133 @@
 <html lang="cs">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yak8ykov7 3D tiskárna</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: "Segoe UI", sans-serif;
-    }
-
-    body {
-      background-color: #f5f5f5;
-      color: #333;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 25px;
-      background-color: #222;
-      color: #fff;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    header img {
-      height: 50px;
-    }
-
-    .menu-icon {
-      display: none;
-      font-size: 28px;
-      cursor: pointer;
-    }
-
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 20px;
-    }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      color: #00bcd4;
-    }
-
-    .hero {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      padding: 50px 10%;
-      background-color: #fff;
-    }
-
-    .hero-text {
-      flex: 1 1 300px;
-      max-width: 500px;
-    }
-
-    .hero-text h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-    }
-
-    .hero-text p {
-      font-size: 1.2em;
-      color: #666;
-    }
-
-    .hero img {
-      flex: 1 1 300px;
-      max-width: 400px;
-      width: 100%;
-      border-radius: 10px;
-      margin-top: 20px;
-    }
-
-    section {
-      padding: 60px 10%;
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 2em;
-      color: #222;
-    }
-
-    .about p {
-      max-width: 700px;
-      margin: 0 auto;
-      line-height: 1.6;
-      text-align: center;
-      color: #444;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
-      margin-top: 30px;
-    }
-
-    .gallery img {
-      width: 100%;
-      border-radius: 10px;
-      transition: transform 0.3s;
-    }
-
-    .gallery img:hover {
-      transform: scale(1.05);
-    }
-
-    footer {
-      background-color: #222;
-      color: #ccc;
-      text-align: center;
-      padding: 15px;
-      font-size: 0.9em;
-    }
-
-    /* Responsivní menu */
-    @media (max-width: 768px) {
-      nav ul {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        right: 20px;
-        background-color: #333;
-        border-radius: 10px;
-        padding: 15px;
-      }
-
-      nav ul.active {
-        display: flex;
-      }
-
-      .menu-icon {
-        display: block;
-      }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3D Print Studio</title>
+  <meta name="description" content="Zakázkový 3D tisk pro firmy i jednotlivce. Přetvoříme vaše nápady v realitu.">
+  <meta name="keywords" content="3D tisk, prototypy, zakázková výroba, Praha">
+  <meta name="author" content="3D Print Studio">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
-  <header>
-    <img src="https://www.flytime.cz/data/products_img/800/ZAKAZKOVY3DTISK832408324115098914457302693.png" alt="Logo 3D Print Studio">
-    <div class="menu-icon" onclick="toggleMenu()">☰</div>
-    <nav>
-      <ul id="menu">
-        <li><a href="#onas">O nás</a></li>
-        <li><a href="#sluzby">Služby</a></li>
-        <li><a href="#galerie">Galerie</a></li>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><i class="fas fa-cube"></i> 3D Print Studio</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="#onas">O nás</a></li>
+        <li class="nav-item"><a class="nav-link" href="#sluzby">Služby</a></li>
+        <li class="nav-item"><a class="nav-link" href="#galerie">Galerie</a></li>
+        <li class="nav-item"><a class="nav-link" href="#kontakt">Kontakt</a></li>
       </ul>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <div class="hero-text">
-      <h1>3D Print Studio</h1>
-      <p>Zakázkový 3D tisk pro firmy i jednotlivce. Přetvoříme vaše nápady v realitu.</p>
     </div>
-    <img src="https://blog.prusa3d.com/wp-content/uploads/photo-gallery/April2017.png" alt="3D tisk">
-  </section>
+  </div>
+</nav>
 
-  <section id="onas" class="about">
+<!-- Hero Section -->
+<section class="bg-light py-5 text-center">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <h1 class="display-5">Zakázkový 3D tisk</h1>
+        <p class="lead">Přetvoříme vaše nápady v realitu – rychle, kvalitně a na míru.</p>
+      </div>
+      <div class="col-md-6">
+        <img src="https://blog.prusa3d.com/wp-content/uploads/photo-gallery/April2017.png" class="img-fluid rounded" alt="3D tisk">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- O nás -->
+<section id="onas" class="py-5">
+  <div class="container text-center">
     <h2>O nás</h2>
-    <p>Jsme česká společnost zaměřená na zakázkový 3D tisk. Nabízíme výrobu prototypů, modelů i finálních produktů z kvalitních materiálů. Spolupracujeme s designéry, inženýry i hobby tvůrci. Klademe důraz na preciznost, rychlost a osobní přístup.</p>
-  </section>
+    <p class="mx-auto" style="max-width: 700px;">Jsme česká firma zaměřená na zakázkový 3D tisk. Spolupracujeme s designéry, inženýry i hobby tvůrci. Klademe důraz na preciznost, rychlost a osobní přístup.</p>
+  </div>
+</section>
 
-  <section id="sluzby" class="about">
+<!-- Služby -->
+<section id="sluzby" class="py-5 bg-light">
+  <div class="container text-center">
     <h2>Služby</h2>
-    <p>Nabízíme 3D tisk metodami FDM, SLA i SLS. Pomůžeme vám s návrhem modelu, optimalizací pro tisk i s povrchovou úpravou výsledného výrobku. Na přání zajistíme také malosériovou výrobu.</p>
-  </section>
-
-  <section id="galerie" class="gallery-section">
-    <h2>Galerie</h2>
-    <div class="gallery">
-      <img src="https://img-cdn.heureka.group/v1/4f890f7a-33e2-52db-b781-ba6d1d07a1e9.jpg" alt="3D tiskárna">
-      <img src="https://www.prusa3d.com/cdn-cgi/image/format=auto,quality=85/content/wysiwyg/fotky/MK4/hobbies.jpg" alt="3D tiskárna">
-      <img src="https://for3dtisk.cz/wp-content/uploads/2021/05/vyrobky-z-3d-tiskarny-e1737396870109.png" alt="Výrobek z 3D tiskárny">
-      <img src="https://cdn1.botland.cz/104544/vyzkousejte-ruzne-barvy-pla-pro-3d-tisk-sada-vlaken.jpg" alt="3D tisk plastu">
+    <div class="row g-4 mt-4">
+      <div class="col-md-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">FDM tisk</h5>
+            <p class="card-text">Rychlý a cenově dostupný tisk pro prototypy a funkční díly.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">SLA tisk</h5>
+            <p class="card-text">Detailní tisk s hladkým povrchem pro designové modely.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">SLS tisk</h5>
+            <p class="card-text">Pevné díly bez podpěr, ideální pro funkční prototypy.</p>
+          </div>
+        </div>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    © 2025 3D Print Studio – Všechna práva vyhrazena
-  </footer>
+<!-- Galerie -->
+<section id="galerie" class="py-5">
+  <div class="container text-center">
+    <h2>Galerie</h2>
+    <div class="row g-3 mt-4">
+      <div class="col-sm-6 col-md-3">
+        <img src="https://img-cdn.heureka.group/v1/4f890f7a-33e2-52db-b781-ba6d1d07a1e9.jpg" class="img-fluid rounded" alt="3D tiskárna">
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <img src="https://www.prusa3d.com/cdn-cgi/image/format=auto,quality=85/content/wysiwyg/fotky/MK4/hobbies.jpg" class="img-fluid rounded" alt="3D tisk hobby">
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <img src="https://for3dtisk.cz/wp-content/uploads/2021/05/vyrobky-z-3d-tiskarny-e1737396870109.png" class="img-fluid rounded" alt="Výrobek">
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <img src="https://cdn1.botland.cz/104544/vyzkousejte-ruzne-barvy-pla-pro-3d-tisk-sada-vlaken.jpg" class="img-fluid rounded" alt="Materiály">
+      </div>
+    </div>
+  </div>
+</section>
 
-  <script>
-    function toggleMenu() {
-      document.getElementById("menu").classList.toggle("active");
-    }
-  </script>
+<!-- Kontakt / Newsletter -->
+<section id="kontakt" class="py-5 bg-light">
+  <div class="container text-center">
+    <h2>Kontaktujte nás</h2>
+    <p>Přihlaste se k odběru novinek:</p>
+    <form class="row justify-content-center g-2 mt-3">
+      <div class="col-md-4">
+        <input type="email" class="form-control" placeholder="Váš e-mail">
+      </div>
+      <div class="col-md-2">
+        <button type="submit" class="btn btn-primary w-100">Odeslat</button>
+      </div>
+    </form>
+  </div>
+</section>
 
+<!-- Footer -->
+<footer class="bg-dark text-light text-center py-3">
+  <p>© 2025 3D Print Studio | Vinohrady, Praha</p>
+  <p><i class="fas fa-envelope"></i> info@3dprintstudio.cz | <i class="fas fa-phone"></i> +420 123 456 789</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
