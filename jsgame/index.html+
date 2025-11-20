@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Game</title>
+
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            max-width: 600px;
+            margin: 40px auto;
+            text-align: center;
+        }
+        input {
+            padding: 3px;
+            margin: 6px;
+            font-size: 1rem;
+            width: 80px;
+        }
+        button {
+            padding: 6px 12px;
+            font-size: 1rem;
+            margin: 5px;
+            cursor: pointer;
+        }
+        #message {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        .win { color: green; }
+        .lose { color: red; }
+    </style>
+</head>
+<body>
+    <h1>JS Game</h1>
+    <p id="message">Hádej číslo od 1 do 20</p>
+
+    <input id="guess" type="number" name="guess">
+    <input id="guessBtn" type="button" value="Zkus">
+    <br>
+    <input id="newGameBtn" type="button" value="Nová hra" onclick="newGame()">
+
+    <p>Počet pokusů <span id="attempts">0</span>.</p>
+
+    <script>
+        let secretNumber;
+        let attempts;
+        const maxAttempts = 8;
+
+        const attemptsEl = document.getElementById('attempts');
+        const messageEl = document.getElementById('message');
+
+        function newGame() {
+            support();
+            secretNumber = Math.floor(Math.random() * 20) + 1;
+            attempts = 0;
+            attemptsEl.textContent = attempts;
+
+            messageEl.textContent = 'Hádej číslo od 1 do 20';
+            messageEl.className = '';
+
+            console.clear();
+            console.log('--- NEW GAME ---');
+            console.log('tajné číslo je', secretNumber);
+        }
+
+        function checkGuess() {
+            attempts++;
+            attemptsEl.textContent = attempts;
+
+            const inputEl = document.getElementById('guess');
+            const guess = Number(inputEl.value);
+
+            console.log('Tip #' + attempts + ':', guess);
+
+            if (!guess || guess < 1 || guess > 20) {
+                messageEl.textContent = 'Zadej číslo mezi 1–20!';
+                return;
+            }
+
+            if (attempts >= maxAttempts && guess !== secretNumber) {
+                messageEl.textContent = 'Prohrál jsi! Číslo bylo ' + secretNumber;
+                messageEl.className = 'lose';
+                console.log('Hráč prohrál.');
+                return;
+            }
+
+            if (guess === secretNumber) {
+                messageEl.textContent = 'Správně! Vyhrál jsi!';
+                messageEl.className = 'win';
+                console.log('Hráč vyhrál.');
+            } else if (guess < secretNumber) {
+                messageEl.textContent = 'Zkus větší číslo';
+            } else {
+                messageEl.textContent = 'Zkus menší číslo';
+            }
+        }
+
+        document.getElementById('guessBtn').addEventListener('click', checkGuess);
+        document.getElementById('guess').addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') {
+                checkGuess();
+                e.srcElement.value = '';
+            }
+        });
+
+        function hlaska() {
+            alert('Pospěšte si, hra běží!');
+        }
+
+        function support() {
+            window.setTimeout(hlaska, 10000);
+        }
+
+        newGame();
+    </script>
+</body>
+</html>
